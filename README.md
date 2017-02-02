@@ -1,2 +1,2 @@
 # Fake_love
-You will be happy!
+A girl/boy friend who replies to your diary
