@@ -1,0 +1,4 @@
+pol
+entertain
+etc
+other
