@@ -1,0 +1,54 @@
+.wrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.content {
+    padding: 30px 25px;
+}
+
+.left {
+    flex-basis: 200px;
+    flex-grow: 4;
+    flex-shrink: 0;
+}
+
+.left .content {
+    text-align: right;
+}
+
+.heading {
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.nav {
+    font-size: 18px;
+    list-style: none;
+}
+
+.nav li {
+    margin: 12px 0;
+}
+
+.item {
+    text-decoration: none;
+    color: #fff;
+}
+
+.right {
+    flex-basis: 400px;
+    flex-grow: 6;
+    flex-shrink: 0;
+    overflow: scroll;
+}
+
+.right .content {
+    max-width: 500px;
+}
+
+.left {
+    background: rgb(251, 98, 113);
+    color: #fff;
+}

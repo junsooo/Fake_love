@@ -1,0 +1,40 @@
+.heading {
+    font-size: 26px;
+    margin-bottom: 15px;
+    font-weight: 400;
+    color: rgb(250, 63, 82);
+}
+
+.paragraph {
+    line-height: 160%;
+    word-break: keep-all;
+}
+
+.textarea {
+    padding: 10px;
+    width: calc(100% - 20px);
+    height: 280px;
+    border: 1px solid #ddd;
+    resize: none;
+    outline: none;
+}
+
+.button {
+    margin-top: 15px;
+    padding: 0 10px;
+    background: rgb(251, 98, 113);
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
+}
+
+.button:hover {
+    background: rgb(251, 108, 122);
+}
+
+.button:active {
+    transform: scale(0.98);
+}
