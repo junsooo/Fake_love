@@ -1,5 +1,5 @@
 #-*- coding: utf-8 -*-
-from flask import Flask, request
+from flask import Flask, request, send_from_directory
 from gtts import gTTS
 import json
 app = Flask(__name__)
@@ -15,10 +15,11 @@ def hello():
 
         #Google TTS
         tts = gTTS(text=data, lang='ko')
-        tts.save('banana.mp3')
-        
-        return data
-    return '<form action="/echo" method="POST"><input name="text"><input type="submit" value="Echo"></form>'
+        tts.save('uploads/text.mp3')
+        #mimetype = audio/mp3
+        print 
+        return send_from_directory('uploads/','text.mp3',as_attachment=True,mimetype='audio/mp3')
+    return '<form action="/" method="POST"><input name="text"><input type="submit" value="Echo"></form>'
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5228)
