@@ -1,5 +1,6 @@
 #-*- coding: utf-8 -*-
 from flask import Flask, request
+from gtts import gTTS
 import json
 app = Flask(__name__)
 
@@ -8,8 +9,14 @@ def hello():
     #Expected Form : text -> 'test_diary'
     if request.method == 'POST':
         data=request.form['text']
-        #PLUS WE NEED TENSOR FLOW MODULE + NAVER_TTS
+        
+        #Tensorflow module
         #data=tenserflow()
+
+        #Google TTS
+        tts = gTTS(text=data, lang='ko')
+        tts.save('banana.mp3')
+        
         return data
     return '<form action="/echo" method="POST"><input name="text"><input type="submit" value="Echo"></form>'
 
