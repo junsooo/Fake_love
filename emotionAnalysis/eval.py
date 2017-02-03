@@ -27,10 +27,10 @@ data_loader.define_flags()
 
 FLAGS = tf.flags.FLAGS
 FLAGS._parse_flags()
-print("\nParameters:")
-for attr, value in sorted(FLAGS.__flags.items()):
-    print("{}={}".format(attr.upper(), value))
-print("")
+output = open("data.txt", 'w')
+
+#for attr, value in sorted(FLAGS.__flags.items()):
+    #print("{}={}".format(attr.upper(), value))
 
 if FLAGS.eval_train:
     x_raw, y_test = data_loader.load_data_and_labels()
@@ -49,8 +49,6 @@ if FLAGS.checkpoint_dir == "":
 vocab_path = os.path.join(FLAGS.checkpoint_dir, "..", "vocab")
 vocab_processor = data_loader.restore_vocab_processor(vocab_path)
 x_test = np.array(list(vocab_processor.transform(x_raw)))
-
-print("\nEvaluating...\n")
 
 # Evaluation
 # ==================================================
@@ -83,18 +81,17 @@ with graph.as_default():
         for x_test_batch in batches:
             batch_predictions = sess.run(predictions, {input_x: x_test_batch, dropout_keep_prob: 1.0})
             all_predictions = np.concatenate([all_predictions, batch_predictions])
-            print (x_test_batch, batch_predictions)
+            print(batch_predictions)
 
 # Print accuracy if y_test is defined
 if y_test is not None:
     correct_predictions = float(sum(all_predictions == y_test))
-    print("Total number of test examples: {}".format(len(y_test)))
-    print("Accuracy: {:g}".format(correct_predictions/float(len(y_test))))
 
 # Save the evaluation to a csv
 class_predictions = data_loader.class_labels(all_predictions.astype(int))
 predictions_human_readable = np.column_stack((np.array(x_raw), class_predictions))
 out_path = os.path.join(FLAGS.checkpoint_dir, "../../../", "prediction.csv")
-print("Saving evaluation to {0}".format(out_path))
+#print("{0}".format(out_path)))
+output.close()
 with open(out_path, 'w') as f:
     csv.writer(f).writerows(predictions_human_readable)

@@ -1,4 +1,3 @@
-pol
-entertain
-etc
-other
+happy
+normal
+sad
