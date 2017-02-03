@@ -27,7 +27,12 @@ module.exports = (emotions) => {
             fs.readFileSync(`./data/${emotion}.normalized.data`).toString()
         );
 
-        inputs.concat(_inputs);
+        _inputs.forEach((input) => {
+            inputs.push({
+                input: input,
+                output: emotion
+            });
+        });
     })
 
     classifier.trainBatch(inputs);
