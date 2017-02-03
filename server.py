@@ -1,18 +1,17 @@
 #-*- coding: utf-8 -*-
 from flask import Flask, request
+import json
 app = Flask(__name__)
 
-@app.route('/',methods=['GET','POST'])
-def diary():
+@app.route("/",methods=['GET','POST'])
+def hello():
+    #Expected Form : text -> 'test_diary'
     if request.method == 'POST':
-    #Expected JSON Format : '{"Diary": "난 네가 너무 좋아", "Title": "나의 그녀에게"}'
-        data=request.get_json()
-        print data
-        return str(data)
-    return "Hello, World!"
-
-#PLUS WE NEED TENSOR FLOW MODULE 
-
+        data=request.form['text']
+        #PLUS WE NEED TENSOR FLOW MODULE + NAVER_TTS
+        #data=tenserflow()
+        return data
+    return '<form action="/echo" method="POST"><input name="text"><input type="submit" value="Echo"></form>'
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0',port=5228)
