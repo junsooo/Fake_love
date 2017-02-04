@@ -1,0 +1,51 @@
+.flex {
+    composes: flex from 'commonCss/flex.css';
+}
+
+.wrap {
+    composes: wrap from 'commonCss/flex.css';
+    position: relative;
+    background: url('/images/background_first.png');
+}
+
+.header {
+    position: absolute;
+    font-family: 'KoPub Batang';
+    font-weight: 700;
+    font-size: 50px;
+    left: 170px;
+    top: 170px;
+    color: #ff7e92;
+    text-shadow: 0px 0px 4px #ff7e92,
+                 0px 0px 4px #ff7e92;
+}
+
+.content {
+    position: absolute;
+    top: 285px;
+    left: 155px;
+    font-family: 'KoPub Batang';
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 40px;
+    color: #ff7e92;
+    text-shadow: 0px 0px 2px #ff7e92,
+                 0px 0px 2px #ff7e92;
+}
+
+.button {
+    padding: 0 20px;
+    position: absolute;
+    top: 400px;
+    left: 155px;
+    height: 40px;
+    font-size: 22px;
+    line-height: 22px;
+    border: none;
+    border-radius: 5px;
+    letter-spacing: 5px;
+    background: #ff7e92;
+    box-shadow: 0 0 4px 4px #ff7e92; 
+    color: #fff;
+    font-family: "KoPub Batang";
+}

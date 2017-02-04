@@ -1,0 +1,106 @@
+.flex {
+    composes: flex from 'commonCss/flex.css';
+}
+
+.wrap {
+    composes: wrap from 'commonCss/flex.css';
+    position: relative;
+    background: url('/images/background.png');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.book {
+    position: absolute;
+    right: 100px;
+    bottom: 60px;
+}
+
+.smallWrap {
+    padding-right: 500px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.button {
+    width: 130px;
+    height: 50px;
+    font-size: 24px;
+    background: #80c5cd;
+    box-shadow: 0 0 4px 4px #80c5cd, 0 0 4px 4px #80c5cd;
+    border: none;
+    color: #fff;
+    outline: none;
+}
+
+.active {
+    composes: button;
+    background: #ff7e92;
+    box-shadow: 0 0 4px 4px #ff7e92, 0 0 4px 4px #ff7e92;
+}
+
+.chats {
+    position: relative;
+    width: 450px;
+    height: 500px;
+    background: #ff7e92;
+    box-shadow: 0 0 4px 4px #ff7e92, 0 0 4px 4px #ff7e92;
+}
+
+.chatList {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 10px;
+    bottom: 70px;
+    background: #fff;
+    padding: 10px;
+    border-radius: 5px; 
+    overflow-y: auto;
+}
+
+.inputs {
+    padding: 0 5px;
+    display: block;
+    position: absolute;
+    left: 0; right: 0;
+    bottom: 10px;
+    height: 50px;
+}
+
+.input {
+    margin-right: 130px;
+    padding: 5px 10px;
+    width: calc(100% - 130px);
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+
+.submitBtn {
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    width: 100px;
+    height: 50px;
+    border-radius: 5px;
+    color: #ff7e92;
+    background: #fff;
+    border: none;
+    font-size: 24px;
+}
+
+.chat {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.author {
+    margin-bottom: 5px;
+    color: #666;
+}
