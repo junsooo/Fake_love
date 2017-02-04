@@ -25,9 +25,7 @@ async.waterfall([
         });
     },
     (callback) => {
-        parse(filename, korean, config, () => {
-            callback();
-        });
+        parse(filename, korean, config, callback);
     },
     (callback) => {
         save(filename, callback);

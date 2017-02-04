@@ -4,7 +4,7 @@ const fs = require('fs');
 module.exports = (filename, callback) => {
     let arr = JSON.parse(
         fs.readFileSync(
-            __dirname + `./data/${filename}.data`
+            __dirname + `/data/${filename}.data`
         ).toString()
     );
 
@@ -23,7 +23,7 @@ module.exports = (filename, callback) => {
 
     Promise.all(promises)
         .then(() => {
-            fs.appendFileSync(`./data/${filename}.normalized.data`, JSON.stringify(texts))
+            fs.appendFileSync(__dirname + `/data/${filename}.normalized.data`, JSON.stringify(texts))
             callback();
         });
 };

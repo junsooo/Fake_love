@@ -1,8 +1,8 @@
-import async from 'async';
-import fs from 'fs';
-import limdu from 'limdu';
-import normalize from './normalize';
-import readline from 'readline';
+const async = require('async');
+const fs = require('fs');
+const limdu = require('limdu');
+const normalize = require('./normalize');
+const readline = require('readline');
 
 module.exports = (emotions) => {
     const TextClassifier = limdu.classifiers.multilabel.BinaryRelevance.bind(0, {
@@ -24,7 +24,7 @@ module.exports = (emotions) => {
 
     emotions.forEach((emotion) => {
         let _inputs = JSON.parse(
-            fs.readFileSync(`./data/${emotion}.normalized.data`).toString()
+            fs.readFileSync(__dirname + `/data/${emotion}.normalized.data`).toString()
         );
 
         _inputs.forEach((input) => {
