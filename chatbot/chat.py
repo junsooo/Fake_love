@@ -22,13 +22,14 @@ class ChatBot:
         ckpt = tf.train.get_checkpoint_state(train_dir)
         self.model.saver.restore(self.sess, ckpt.model_checkpoint_path)
 
-    def run(self):
+    def run(self,line):
         sys.stdout.write("> ")
         sys.stdout.flush()
-        line = sys.stdin.readline()
-
+        #line = sys.stdin.readline()
+        #line = "오늘 힘들었어"
         while line:
-            print (self.get_replay(line.strip()))
+            #print line
+            return (self.get_replay(line.strip()))
 
             sys.stdout.write("\n> ")
             sys.stdout.flush()
@@ -72,7 +73,7 @@ class ChatBot:
 
 
 def main(_):
-    print ("깨어나는 중 입니다. 잠시만 기다려주세요...\n")
+    print "Awaking\n"
 
     chatbot = ChatBot(FLAGS.voc_path, FLAGS.train_dir)
     chatbot.run()

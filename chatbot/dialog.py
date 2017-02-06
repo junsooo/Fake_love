@@ -204,7 +204,7 @@ def main(_):
         print (target)
 
     elif FLAGS.data_path and FLAGS.voc_build:
-        print ("다음 데이터에서 어휘 사전을 생성합니다.", FLAGS.data_path)
+        print "Create a dictionary of vocabulary from the following data: "+FLAGS.data_path
         dialog.build_vocab(FLAGS.data_path, FLAGS.voc_path)
 
     elif FLAGS.voc_test:
